@@ -10,15 +10,13 @@ var isActive bool                   // 全局变量声明
 var enabled, disabled = true, false // 忽略类型的声明
 
 func main() {
-	//定义一个名称为“variableName”，类型为"type"的变量
-	var a int64 = 1
-	//定义三个类型都是“type”的变量
 	// var vname1, vname2, vname3 type
+	var a int64 = 1
 
 	/*
 		定义三个变量，它们分别初始化为相应的值
 		vname1为v1，vname2为v2，vname3为v3
-		然后Go会根据其相应值的类型来帮你初始化它们
+		然后Go会根据其相应值的类型来初始化它们
 	*/
 	var b, c, d = 2, "test", 0.45
 
@@ -29,7 +27,10 @@ func main() {
 	*/
 	e, f, g := 1e10, "中国", "[1, 2]"
 
-	// _（下划线）是个特殊的变量名，任何赋予它的值都会被丢弃。在这个例子中，我们将值35赋予b，并同时丢弃34：
+	/*
+		_（下划线）是个特殊的变量名，任何赋予它的值都会被丢弃。
+		将值35赋予b，并同时丢弃34
+	*/
 	_, h := 34, 35
 
 	const constantName = "value"
@@ -50,7 +51,6 @@ func main() {
 // for var define test
 func test() {
 	// 在Go中，布尔值的类型为bool，值是true或false，默认为false。
-
 	var available bool // 一般声明
 	valid := false     // 简短声明
 	available = true   // 赋值操作
