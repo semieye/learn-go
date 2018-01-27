@@ -21,5 +21,7 @@ thanks **runoob**, **astaxie**, thanks **google**, thanks **github**.
 - [递归 recursion](basic/recursion)
 - [错误 error](basic/error)
 - [接口 interface](basic/interface)
+- [信道 chan](basic/chan)
+- [并发 goroutines](basic/goroutines)
 - [测试 testing](basic/testing)
 
