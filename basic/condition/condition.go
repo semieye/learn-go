@@ -93,4 +93,12 @@ func main() {
 		fmt.Println("no communication")
 	}
 
+	/* for 循环 */
+	for a := 0; a < 10; a++ {
+		fmt.Printf("a 的值为: %d\n", a)
+	}
+	numbers := [6]int{1, 2, 3, 5}
+	for i, x := range numbers {
+		fmt.Printf("第 %d 位 x 的值 = %d\n", i, x)
+	}
 }
