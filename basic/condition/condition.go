@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+/*
+for init; condition; post { } // 如同C的for循环
+for condition { }             // 如同C的while循环
+for { }                       // 如同C的for(;;)循环
+*/
+
 func main() {
 	//if 语句后可以使用可选的 else 语句, else 语句中的表达式在布尔表达式为 false 时执行。
 	/* 局部变量定义 */
@@ -101,4 +107,61 @@ func main() {
 	for i, x := range numbers {
 		fmt.Printf("第 %d 位 x 的值 = %d\n", i, x)
 	}
+
+	// Go没有逗号操作符，而 ++ 和 -- 为语句而非表达式。 因此，若你想要在 for 中使用多个变量，
+	// 应采用平行赋值的方式 （因为它会拒绝 ++ 和 --）
+	w := [5]int{0, 1, 2, 3, 4}
+	// 反转 w
+	for i, j := 0, len(w)-1; i < j; i, j = i+1, j-1 {
+		w[i], w[j] = w[j], w[i]
+	}
+	fmt.Println(w)
+
+	// 解析UTF-8， 将每个独立的Unicode码点分离出来。错误的编码将占用一个字节，range自动以符文U+FFFD来代替。
+	for pos, char := range "日本\x80語" { // \x80 是个非法的UTF-8编码
+		fmt.Printf("字符 %#U 始于字节位置 %d\n", char, pos)
+	}
+}
+
+// 若 switch 后面没有表达式，它将匹配 true，因此，我们可以将 if-else-if-else 链写成一个 switch
+// break + 标签 可以跳出switch和多重循环
+func unhex(c byte) byte {
+	switch {
+	case '0' <= c && c <= '9':
+		return c - '0'
+	case 'a' <= c && c <= 'f':
+		return c - 'a' + 10
+	case 'A' <= c && c <= 'F':
+		return c - 'A' + 10
+	}
+	return 0
+}
+
+// switch 并不会自动下溯，但 case 可通过逗号分隔来列举相同的处理条件。
+func shouldEscape(c byte) bool {
+	switch c {
+	case ' ', '?', '&', '=', '#', '+', '%':
+		return true
+	}
+	return false
+}
+
+// Compare 按字典顺序比较两个字节切片并返回一个整数。
+// 若 a == b，则结果为零；若 a < b；则结果为 -1；若 a > b，则结果为 +1。
+func Compare(a, b []byte) int {
+	for i := 0; i < len(a) && i < len(b); i++ {
+		switch {
+		case a[i] > b[i]:
+			return 1
+		case a[i] < b[i]:
+			return -1
+		}
+	}
+	switch {
+	case len(a) > len(b):
+		return 1
+	case len(a) < len(b):
+		return -1
+	}
+	return 0
 }

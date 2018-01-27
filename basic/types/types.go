@@ -4,12 +4,36 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"log"
+	"os"
 )
 
 // 全局变量
 var isActive bool                   // 全局变量声明
 var enabled, disabled = true, false // 忽略类型的声明
+
+var (
+	home   = os.Getenv("HOME")
+	user   = os.Getenv("USER")
+	gopath = os.Getenv("GOPATH")
+)
+
+// 每个源文件都可以通过定义自己的无参数 init 函数来设置一些必要的状态
+func init() {
+	if user == "" {
+		log.Fatal("$USER not set")
+	}
+	if home == "" {
+		home = "/home/" + user
+	}
+	if gopath == "" {
+		gopath = home + "/go"
+	}
+	// gopath 可通过命令行中的 --gopath 标记覆盖掉。
+	flag.StringVar(&gopath, "gopath", gopath, "override default GOPATH")
+}
 
 // 包中的main可以编译成可执行文件
 func main() {
