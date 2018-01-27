@@ -7,6 +7,16 @@ import (
 	"fmt"
 )
 
+// go源码中slice结构
+// https://github.com/golang/go/blob/master/src/runtime/slice.go
+/*
+type slice struct {
+	array unsafe.Pointer
+	len   int
+	cap   int
+}
+*/
+
 func main() {
 	// slice并不是真正意义上的动态数组，而是一个引用类型。
 	// slice总是指向一个底层array，slice的声明也可以像array一样，只是不需要长度。
