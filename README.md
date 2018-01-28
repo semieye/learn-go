@@ -9,6 +9,7 @@ learn go lang, study and practice.
 
 thanks **runoob**, **astaxie**, thanks **google**, thanks **github**.
 
+### basic knowledge 
 - [类型 types](basic/types)
 - [结构 struct](basic/struct)
 - [数组 array](basic/array)
@@ -25,4 +26,11 @@ thanks **runoob**, **astaxie**, thanks **google**, thanks **github**.
 - [并发 goroutines](basic/goroutines)
 - [打印 print](basic/print)
 - [测试 testing](basic/testing)
+
+### web knowledge
+- [WEB web/http](web/http)
+
+### database knowledge
+- [MySQL database/mysql](database/mysql)
+
 
