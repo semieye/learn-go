@@ -11,7 +11,7 @@ for { }                       // 如同C的for(;;)循环
 func main() {
 	//if 语句后可以使用可选的 else 语句, else 语句中的表达式在布尔表达式为 false 时执行。
 	/* 局部变量定义 */
-	a := 100
+	a := 100 // 下面for循环定义了一个同名的a，出循环后值为此处赋值的值。
 
 	/* 判断布尔表达式 */
 	if a < 20 {
@@ -103,6 +103,9 @@ func main() {
 	for a := 0; a < 10; a++ {
 		fmt.Printf("a 的值为: %d\n", a)
 	}
+	// for 循环定义的变量出了for循环失效
+	fmt.Printf("a 的值为: %d\n", a)
+
 	numbers := [6]int{1, 2, 3, 5}
 	for i, x := range numbers {
 		fmt.Printf("第 %d 位 x 的值 = %d\n", i, x)
