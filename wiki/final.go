@@ -18,6 +18,7 @@ var (
 	addr = flag.Bool("addr", false, "find open address and print to final-port.txt")
 )
 
+// Page page struct
 type Page struct {
 	Title string
 	Body  []byte
