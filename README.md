@@ -23,5 +23,6 @@ thanks **runoob**, **astaxie**, thanks **google**, thanks **github**.
 - [接口 interface](basic/interface)
 - [信道 chan](basic/chan)
 - [并发 goroutines](basic/goroutines)
+- [打印 print](basic/print)
 - [测试 testing](basic/testing)
 
