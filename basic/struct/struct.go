@@ -15,6 +15,7 @@ type Human struct {
 	name   string
 	age    int
 	weight int
+	phone  string //与emp中同名字段
 }
 
 // Student a struct include Human
@@ -27,6 +28,13 @@ type Student struct {
 
 // Skills a slice
 type Skills []string
+
+// Employee struct
+type Employee struct {
+	Human      // 匿名字段Human
+	speciality string
+	phone      string // 雇员的phone字段
+}
 
 func main() {
 	var Book1 Books /* 声明 Book1 为 Books 类型 */
@@ -51,6 +59,8 @@ func main() {
 	printBook(Book2)
 
 	printStudent()
+
+	printEmp()
 }
 
 func printBook(book Books) {
@@ -62,7 +72,7 @@ func printBook(book Books) {
 
 func printStudent() {
 	// 初始化学生Jane
-	jane := Student{Human: Human{"Jane", 35, 100}, speciality: "Biology"}
+	jane := Student{Human: Human{"Jane", 35, 100, "xxxx"}, speciality: "Biology"}
 	// 现在我们来访问相应的字段
 	fmt.Println("Her name is ", jane.name)
 	fmt.Println("Her age is ", jane.age)
@@ -77,4 +87,12 @@ func printStudent() {
 	// 修改匿名内置类型字段
 	jane.int = 3
 	fmt.Println("Her preferred number is", jane.int)
+}
+
+func printEmp() {
+	Bob := Employee{Human{"Bob", 34, 10, "777-444-XXXX"}, "Designer", "333-222"}
+	fmt.Println("Bob's work phone is:", Bob.phone)
+	// 如果我们要访问Human的phone字段
+	fmt.Println("Bob's personal phone is:", Bob.Human.phone)
+	//最外层的优先访问，也就是当你通过Employee.phone访问的时候，是访问Employee里面的字段，而不是human里面的字段
 }
