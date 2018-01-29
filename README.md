@@ -31,6 +31,6 @@ thanks **runoob**, **astaxie**, thanks **google**, thanks **github**.
 - [WEB web/http](web/http)
 
 ### database knowledge
-- [MySQL database/mysql](database/mysql)
+- [数据库 Database](database/)
 
 
