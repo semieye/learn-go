@@ -26,6 +26,7 @@ thanks **runoob**, **astaxie**, thanks **google**, thanks **github**.
 - [并发 goroutines](basic/goroutines)
 - [打印 print](basic/print)
 - [测试 testing](basic/testing)
+- [文本 text](text/)
 
 ### web knowledge
 - [WEB web/http](web/http)
